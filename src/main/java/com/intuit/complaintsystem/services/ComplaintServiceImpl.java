@@ -24,14 +24,14 @@ public class ComplaintServiceImpl implements ComplaintService {
     public void addComplaint(ComplaintCreationDto complaint) throws InterruptedException, ExecutionException {
         complaintRepository.save(mapper.toComplaint(complaint));
 
-        //TODO: SEND A RESPONSE TO CLIENT BEFORE
+        //TODO: Run this AFTER return response
         CompletableFuture<User> userInfo = userService.getUserInfo(complaint.getUserId());
         CompletableFuture<PurchaseInfoDto> purchaseInfo = purchaseService.getPurchaseInfo(complaint.getPurchaseId());
-
         CompletableFuture.allOf(userInfo).join();
 
         userService.saveUserInfo(userInfo.get());
         purchaseService.savePurchaseInfo(purchaseInfo.get());
+        //TODO: End
     }
 
 }

@@ -11,12 +11,12 @@ import java.util.UUID;
 public class PurchaseInfoDto {
 
     private UUID id;
-    private String userId;
-    private String productId;
+    private UUID userId;
+    private UUID productId;
     private String productName;
     private double pricePaidAmount;
     private String priceCurrency;
     private double discountPercent;
-    private String merchantId;
+    private UUID merchantId;
     private Date purchaseDate;
 }

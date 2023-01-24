@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @Service
@@ -28,8 +29,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Async
-    public CompletableFuture<User> getUserInfo(String userId) {
-        String url = String.format(mockUrl, userId);
+    public CompletableFuture<User> getUserInfo(UUID userId) {
+        String url = String.format(mockUrl, userId.toString());
         User userInfo = restTemplate.getForObject(url, User.class);
 
         return CompletableFuture.completedFuture(userInfo);

@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @Service
@@ -29,8 +30,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     @Async
-    public CompletableFuture<PurchaseInfoDto> getPurchaseInfo(String purchaseId) {
-        String url = String.format(mockUrl, purchaseId);
+    public CompletableFuture<PurchaseInfoDto> getPurchaseInfo(UUID purchaseId) {
+        String url = String.format(mockUrl, purchaseId.toString());
         PurchaseInfoDto purchaseInfo = restTemplate.getForObject(url, PurchaseInfoDto.class);
 
         return CompletableFuture.completedFuture(purchaseInfo);

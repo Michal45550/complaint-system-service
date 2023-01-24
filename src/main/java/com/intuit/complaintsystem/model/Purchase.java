@@ -27,7 +27,8 @@ public class Purchase {
     private User user;
 
     @Column(name = "`productId`")
-    private String productId;
+    @Type(type = "uuid-char")
+    private UUID productId;
 
     @Column(name = "`productName`")
     private String productName;
@@ -42,7 +43,8 @@ public class Purchase {
     private double discountPercent;
 
     @Column(name = "`merchantId`")
-    private String merchantId;
+    @Type(type = "uuid-char")
+    private UUID merchantId;
 
     @Column(name = "`purchaseDate`")
     private Date purchaseDate;

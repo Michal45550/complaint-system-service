@@ -15,10 +15,10 @@ public class ComplaintMapper {
     public Complaint toComplaint(ComplaintCreationDto complaint) {
         return Complaint.builder()
                 .id(UUID.randomUUID())
-                .user(User.builder().id(UUID.fromString(complaint.getUserId())).build())
+                .user(User.builder().id(complaint.getUserId()).build())
                 .subject(complaint.getSubject())
                 .complaint(complaint.getComplaint())
-                .purchase(Purchase.builder().id(UUID.fromString(complaint.getPurchaseId())).build())
+                .purchase(Purchase.builder().id(complaint.getPurchaseId()).build())
                 .build();
 
     }
@@ -26,7 +26,7 @@ public class ComplaintMapper {
     public Purchase toPurchase(PurchaseInfoDto purchase) {
         return Purchase.builder()
                 .id(purchase.getId())
-                .user(User.builder().id(UUID.fromString(purchase.getUserId())).build())
+                .user(User.builder().id(purchase.getUserId()).build())
                 .productId(purchase.getProductId())
                 .productName(purchase.getProductName())
                 .pricePaidAmount(purchase.getPricePaidAmount())
