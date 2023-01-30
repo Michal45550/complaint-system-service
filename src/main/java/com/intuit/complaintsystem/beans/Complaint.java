@@ -1,4 +1,4 @@
-package com.intuit.complaintsystem.model;
+package com.intuit.complaintsystem.beans;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

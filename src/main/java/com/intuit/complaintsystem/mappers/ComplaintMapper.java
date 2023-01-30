@@ -1,10 +1,10 @@
 package com.intuit.complaintsystem.mappers;
 
+import com.intuit.complaintsystem.beans.Complaint;
+import com.intuit.complaintsystem.beans.Purchase;
+import com.intuit.complaintsystem.beans.User;
 import com.intuit.complaintsystem.dtos.ComplaintCreationDto;
 import com.intuit.complaintsystem.dtos.PurchaseInfoDto;
-import com.intuit.complaintsystem.model.Complaint;
-import com.intuit.complaintsystem.model.Purchase;
-import com.intuit.complaintsystem.model.User;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

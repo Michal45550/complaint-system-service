@@ -21,7 +21,6 @@ public class ComplaintsController {
 
     @PostMapping
     public ResponseEntity<?> addComplaint(@RequestBody ComplaintCreationDto complaint) throws ExecutionException, InterruptedException {
-        service.addComplaint(complaint);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(service.addComplaint(complaint).getId(), HttpStatus.OK);
     }
 }
